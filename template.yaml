@@ -17,11 +17,11 @@ spec:
   # https://backstage.io/docs/features/software-templates/input-examples
   parameters:
     - title: Complete the form to create a new .NET 8 project
-      ui:ObjectFieldTemplate: TwoColumn
       required:
         - name
         - description
         - system
+        - owner
       properties:
         name:
           type: string
@@ -37,7 +37,7 @@ spec:
           title: Select in which group the component will be created
           type: string
           description: The group the component belongs to
-          ui:field: MyGroupsPicker          
+          ui:field: OwnerPicker          
         system:
           title: System
           type: string
@@ -94,7 +94,7 @@ spec:
         allowedHosts: ["github.com"]
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
-        # repoVisibility: private
+        repoVisibility: public
         gitCommitMessage: Create scaffold
         topics: ["backstage-include", "returngis"]
         defaultBranch: main
